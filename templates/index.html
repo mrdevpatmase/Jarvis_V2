@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Assistant</title>
+    <style>
+        /* 🌑 Dark Theme */
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #58a6ff;
+            margin-bottom: 30px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #21262d;
+            color: #c9d1d9;
+            border: 2px solid #30363d;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #58a6ff;
+            color: #0d1117;
+            border-color: #58a6ff;
+            transform: scale(1.05);
+        }
+
+        .status {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #8b949e;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 15px;
+            font-size: 13px;
+            color: #484f58;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎙️ Jarvis Assistant</h1>
+    
+    <div class="btn-container">
+        <button id="start-btn">🎤 Give Command</button>
+        <button id="stop-btn">🛑 Stop Command</button>
+    </div>
+
+    <div class="status" id="status-text">Waiting for your command...</div>
+
+    <footer>Made with ❤️ by Dev Patmase</footer>
+
+    <script>
+        const startBtn = document.getElementById('start-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        const statusText = document.getElementById('status-text');
+
+startBtn.addEventListener('click', async () => {
+    statusText.textContent = "🎧 Listening...";
+    
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "en-US";
+    recognition.start();
+
+    recognition.onresult = async (event) => {
+        const command = event.results[0][0].transcript;
+        statusText.textContent = `🗣️ You said: "${command}"`;
+
+        // Send the recognized text to Flask
+        const res = await fetch("/give_command", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ command })
+        });
+        
+        const data = await res.json();
+        statusText.textContent = data.status;
+    };
+
+    recognition.onerror = () => {
+        statusText.textContent = "⚠️ Could not capture voice.";
+    };
+});
+
+
+        stopBtn.addEventListener('click', async () => {
+            const res = await fetch("/stop_command", { method: "POST" });
+            const data = await res.json();
+            statusText.textContent = data.status;
+        });
+    </script>
+
+</body>
+</html>
