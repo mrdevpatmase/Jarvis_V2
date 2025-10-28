@@ -2,3 +2,23 @@
 jarvis_intent_model_stack.pkl
 jarvis_scaler_stack.pkl
 sample_code.py
+
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+
+venv/
+env/
+
+# System files
+.DS_Store
+
+# IDE configs
+.vscode/
+.idea/
+
+# Other build/deployment files
+*.log
