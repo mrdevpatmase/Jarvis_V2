@@ -1,6 +1,4 @@
 .venv
-jarvis_intent_model_stack.pkl
-jarvis_scaler_stack.pkl
 sample_code.py
 
 
