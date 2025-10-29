@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from main import find_intent, execute_intent
 from speech_text_transform import text_to_speech, speech_to_text
+import os
 
 app = Flask(__name__)
 
@@ -27,5 +28,7 @@ def stop_command():
     print("🛑 Jarvis received stop request")
     return jsonify({"status": "Jarvis has stopped listening."})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
