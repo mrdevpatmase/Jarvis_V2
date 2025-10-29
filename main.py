@@ -91,18 +91,21 @@ def execute_intent(intent: int):
             text_to_speech(f"The current time is {current_time}")
 
         elif intent == SEARCH_GOOGLE:
-            text_to_speech("What do you want to search on Google?")
-            query = speech_to_text()
-            if query:
-                webbrowser.open(f"https://www.google.com/search?q={query}")
-                text_to_speech(f"Searching Google for {query}")
+            try:
+                os.startfile(r"C:\Program Files\Google\Chrome\Application\chrome.exe")
+                text_to_speech("Opening Google Chrome")
+            except Exception:
+                webbrowser.open("https://www.google.com/")
+                text_to_speech("Chrome not found, opening Google in browser")
 
         elif intent == SEARCH_YOUTUBE:
-            text_to_speech("What do you want to search on YouTube?")
-            query = speech_to_text()
-            if query:
-                webbrowser.open(f"https://www.youtube.com/results?search_query={query}")
-                text_to_speech(f"Searching YouTube for {query}")
+            try:
+                os.startfile(r"C:\Users\%USERNAME%\AppData\Local\YouTube Music\YouTubeMusic.exe")
+                text_to_speech("Opening YouTube application")
+            except Exception:
+                webbrowser.open("https://www.youtube.com/")
+                text_to_speech("YouTube app not found, opening in browser")
+
 
         elif intent == OPEN_NOTEPAD:
             os.system("notepad.exe")
