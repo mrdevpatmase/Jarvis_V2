@@ -66,7 +66,7 @@ def find_intent(command: str) -> int:
         return -1
 
 # 5️⃣ Web-based Intent Execution
-def execute_intent(intent: int):
+# def execute_intent(intent: int):
     """Performs web-based actions (Render-compatible)."""
     try:
         if intent == GET_TIME:
@@ -117,6 +117,43 @@ def execute_intent(intent: int):
     except Exception as e:
         print(f"⚠️ Error while executing intent: {e}")
         text_to_speech("Something went wrong while executing your command.")
+
+
+def execute_intent(intent: int):
+    """Executes a web-based action based on the intent number."""
+    try:
+        if intent == GET_TIME:
+            current_time = datetime.datetime.now().strftime("%H:%M:%S")
+            return f"The current time is {current_time}"
+
+        elif intent == SEARCH_GOOGLE:
+            return "Opening Google... <a href='https://www.google.com/' target='_blank'>Click here</a>"
+
+        elif intent == SEARCH_YOUTUBE:
+            return "Opening YouTube... <a href='https://www.youtube.com/' target='_blank'>Click here</a>"
+
+        elif intent == OPEN_WHATSAPP:
+            return "Opening WhatsApp Web... <a href='https://web.whatsapp.com/' target='_blank'>Click here</a>"
+
+        elif intent == OPEN_LINKEDIN:
+            return "Opening LinkedIn... <a href='https://www.linkedin.com/' target='_blank'>Click here</a>"
+
+        elif intent == OPEN_GITHUB:
+            return "Opening GitHub... <a href='https://github.com/' target='_blank'>Click here</a>"
+
+        elif intent == OPEN_SPOTIFY:
+            return "Opening Spotify... <a href='https://open.spotify.com/' target='_blank'>Click here</a>"
+
+        elif intent == EXIT_INTENT:
+            return "Goodbye! Have a great day 👋"
+
+        else:
+            return "Sorry, I don’t know how to handle that command yet."
+
+    except Exception as e:
+        print(f"⚠️ Error while executing intent: {e}")
+        return "Something went wrong while processing your command."
+
 
 # 6️⃣ Start (Voice or Text Mode)
 if __name__ == "__main__":
