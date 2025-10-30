@@ -50,6 +50,8 @@
             margin-top: 30px;
             font-size: 18px;
             color: #8b949e;
+            text-align: center;
+            width: 80%;
         }
 
         footer {
@@ -78,33 +80,50 @@
         const stopBtn = document.getElementById('stop-btn');
         const statusText = document.getElementById('status-text');
 
-startBtn.addEventListener('click', async () => {
-    statusText.textContent = "🎧 Listening...";
-    
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.lang = "en-US";
-    recognition.start();
+        startBtn.addEventListener('click', async () => {
+            statusText.textContent = "🎧 Listening...";
+            
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = "en-US";
+            recognition.start();
 
-    recognition.onresult = async (event) => {
-        const command = event.results[0][0].transcript;
-        statusText.textContent = `🗣️ You said: "${command}"`;
+            recognition.onresult = async (event) => {
+                const command = event.results[0][0].transcript;
+                statusText.textContent = `🗣️ You said: "${command}"`;
 
-        // Send the recognized text to Flask
-        const res = await fetch("/give_command", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ command })
+                // Send the recognized text to Flask
+                try {
+                    const res = await fetch("/give_command", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ command })
+                    });
+
+                    if (!res.ok) {
+                        statusText.textContent = "⚠️ Server error. Try again.";
+                        return;
+                    }
+
+                    const data = await res.json();
+                    const status = data.status;
+
+                    // Display response (HTML safe)
+                    statusText.innerHTML = status;
+
+                    // 🔗 Auto open link if present
+                    const match = status.match(/href='(.*?)'/);
+                    if (match && match[1]) {
+                        window.open(match[1], "_blank");
+                    }
+                } catch (error) {
+                    statusText.textContent = "⚠️ Error connecting to server.";
+                }
+            };
+
+            recognition.onerror = () => {
+                statusText.textContent = "⚠️ Could not capture voice.";
+            };
         });
-        
-        const data = await res.json();
-        statusText.textContent = data.status;
-    };
-
-    recognition.onerror = () => {
-        statusText.textContent = "⚠️ Could not capture voice.";
-    };
-});
-
 
         stopBtn.addEventListener('click', async () => {
             const res = await fetch("/stop_command", { method: "POST" });
