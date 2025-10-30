@@ -10,7 +10,6 @@ import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
 from sklearn.exceptions import InconsistentVersionWarning
 
-# 🧠 Ignore sklearn warnings
 warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 # 1️⃣ Load trained stacking model and scaler
@@ -25,7 +24,7 @@ except Exception as e:
     print(f"⚠️ Error loading model or scaler: {e}")
     sys.exit("❌ Exiting due to model load failure")
 
-# 2️⃣ Load spaCy model and stopwords
+# 2️⃣ Load spaCy model
 try:
     nlp = spacy.load("en_core_web_md")
 except OSError:
@@ -44,80 +43,56 @@ OPEN_WHATSAPP = 5
 OPEN_LINKEDIN = 6
 OPEN_GITHUB = 7
 OPEN_SPOTIFY = 8
-EXIT_INTENT = 9  # avoid using Python keyword 'exit'
+EXIT_INTENT = 9
 
-
-# 4️⃣ Function to predict intent
+# 4️⃣ Intent prediction
 def find_intent(command: str) -> int:
-    """Predicts the intent from a voice/text command."""
     if not command.strip():
         return -1
 
-    # Remove stopwords
     command_clean = " ".join(
         [word for word in command.lower().split() if word not in stopwords]
     )
-
-    # Convert to vector using spaCy
     doc = nlp(command_clean)
 
-    # Check for zero vector
     if not np.any(doc.vector):
         return -1
 
-    # Scale embedding safely
     try:
         command_scaled = scaler.transform(doc.vector.reshape(1, -1))
-    except ValueError as e:
-        print(f"⚠️ Scaling error: {e}")
-        return -1
-
-    # Predict intent number
-    try:
-        intent_number = int(stack_clf.predict(command_scaled)[0])
-        return intent_number
+        return int(stack_clf.predict(command_scaled)[0])
     except Exception as e:
         print(f"⚠️ Prediction error: {e}")
         return -1
 
-
-# 5️⃣ Function to execute the predicted intent
+# 5️⃣ Web-based Intent Execution
 def execute_intent(intent: int):
-    """Executes a system or web action based on the intent number."""
+    """Performs web-based actions (Render-compatible)."""
     try:
         if intent == GET_TIME:
             current_time = datetime.datetime.now().strftime("%H:%M:%S")
-            print("⏰ Current Time:", current_time)
+            print(f"⏰ Current Time: {current_time}")
             text_to_speech(f"The current time is {current_time}")
 
         elif intent == SEARCH_GOOGLE:
-            try:
-                os.startfile(r"C:\Program Files\Google\Chrome\Application\chrome.exe")
-                text_to_speech("Opening Google Chrome")
-            except Exception:
-                webbrowser.open("https://www.google.com/")
-                text_to_speech("Chrome not found, opening Google in browser")
+            webbrowser.open("https://www.google.com/")
+            text_to_speech("Opening Google")
 
         elif intent == SEARCH_YOUTUBE:
-            try:
-                os.startfile(r"C:\Users\%USERNAME%\AppData\Local\YouTube Music\YouTubeMusic.exe")
-                text_to_speech("Opening YouTube application")
-            except Exception:
-                webbrowser.open("https://www.youtube.com/")
-                text_to_speech("YouTube app not found, opening in browser")
-
+            webbrowser.open("https://www.youtube.com/")
+            text_to_speech("Opening YouTube")
 
         elif intent == OPEN_NOTEPAD:
-            os.system("notepad.exe")
-            text_to_speech("Opening Notepad")
+            webbrowser.open("https://editpad.org/")
+            text_to_speech("Opening Online Notepad")
 
         elif intent == OPEN_CALCULATOR:
-            os.system("calc.exe")
-            text_to_speech("Opening Calculator")
+            webbrowser.open("https://www.google.com/search?q=online+calculator")
+            text_to_speech("Opening Online Calculator")
 
         elif intent == OPEN_WHATSAPP:
             webbrowser.open("https://web.whatsapp.com/")
-            text_to_speech("Opening WhatsApp")
+            text_to_speech("Opening WhatsApp Web")
 
         elif intent == OPEN_LINKEDIN:
             webbrowser.open("https://www.linkedin.com/")
@@ -128,11 +103,8 @@ def execute_intent(intent: int):
             text_to_speech("Opening GitHub")
 
         elif intent == OPEN_SPOTIFY:
-            if os.system("spotify.exe") != 0:
-                webbrowser.open("https://open.spotify.com/")
-                text_to_speech("Opening Spotify in browser")
-            else:
-                text_to_speech("Opening Spotify")
+            webbrowser.open("https://open.spotify.com/")
+            text_to_speech("Opening Spotify")
 
         elif intent == EXIT_INTENT:
             text_to_speech("Goodbye! Shutting down.")
@@ -140,16 +112,15 @@ def execute_intent(intent: int):
             sys.exit(0)
 
         else:
-            text_to_speech("Sorry, I don't know how to handle this command yet.")
+            text_to_speech("Sorry, I don't know this command yet.")
 
     except Exception as e:
         print(f"⚠️ Error while executing intent: {e}")
         text_to_speech("Something went wrong while executing your command.")
 
-
-# 6️⃣ Start voice assistant
+# 6️⃣ Start (Voice or Text Mode)
 if __name__ == "__main__":
-    text_to_speech("Hello! I am your voice assistant. Listening for commands...")
+    text_to_speech("Hello! I am your Jarvis web assistant. Listening for commands...")
     while True:
         try:
             command = speech_to_text()
@@ -162,7 +133,7 @@ if __name__ == "__main__":
                 text_to_speech("I didn't catch that. Please say it again.")
         except KeyboardInterrupt:
             text_to_speech("Goodbye! Exiting now.")
-            print("👋 Keyboard interrupt detected, shutting down.")
+            print("👋 Shutting down.")
             sys.exit(0)
         except Exception as e:
             print(f"⚠️ Unexpected error: {e}")
