@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jarvis – Entrance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --accent: #00e5ff;
+      --accent-soft: #38bdf8;
+      --text-main: #e5e7eb;
+      --text-sub: #9ca3af;
+      --border: rgba(148, 163, 184, 0.35);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 45%),
+                  radial-gradient(circle at bottom right, #0f172a 0, #020617 55%);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* fake glowing nodes in background */
+    .orb {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      filter: blur(40px);
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .orb.orb-1 { background: #22d3ee; top: -60px; left: -40px; }
+    .orb.orb-2 { background: #6366f1; bottom: -80px; right: -40px; }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 380px;
+      padding: 32px 28px 26px;
+      border-radius: var(--radius);
+      background: var(--card-bg);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.8),
+        0 0 0 1px rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(18px);
+      text-align: center;
+    }
+
+    .logo-wrap {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      background: radial-gradient(circle at 20% 0, #f9fafb 0, #e0f2fe 18%, #1d4ed8 52%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 0 18px rgba(56, 189, 248, 0.7),
+        0 0 38px rgba(37, 99, 235, 0.8);
+      color: white;
+      font-size: 42px;
+      font-weight: 700;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      color: #020617;
+      box-shadow: 0 8px 22px rgba(56, 189, 248, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.6);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border-color: var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.75);
+    }
+
+    .guest {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .guest a {
+      color: var(--accent-soft);
+      text-decoration: none;
+    }
+    .guest a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        margin: 0 18px;
+        padding: 26px 22px 22px;
+      }
+      .logo-wrap {
+        width: 68px;
+        height: 68px;
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- glowy blobs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- main entrance card -->
+  <div class="card">
+    <div class="logo-wrap">J</div>
+
+    <div class="title">JARVIS – Your Advanced Neural Assistant</div>
+    <div class="subtitle">Log in to unlock personalized commands, history and settings.</div>
+
+    <!-- buttons point to your Flask routes -->
+    <a href="/login" class="btn btn-primary">LOG IN</a>
+    <a href="/signup" class="btn btn-outline">CREATE ACCOUNT</a>
+
+    <div class="guest">
+      <a href="/guest">Continue as Guest →</a>
+    </div>
+  </div>
+
+</body>
+</html>
