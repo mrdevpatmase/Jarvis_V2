@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login – Jarvis AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --accent: #00e5ff;
+      --accent-soft: #38bdf8;
+      --text-main: #e5e7eb;
+      --text-sub: #9ca3af;
+      --border: rgba(148, 163, 184, 0.35);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 45%),
+                  radial-gradient(circle at bottom right, #0f172a 0, #020617 55%);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    /* glowing background blobs */
+    .orb {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      filter: blur(40px);
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .orb-1 { background: #22d3ee; top: -60px; left: -40px; }
+    .orb-2 { background: #6366f1; bottom: -80px; right: -40px; }
+
+    /* login card */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 400px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 32px 28px 26px;
+      box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.8),
+        0 0 0 1px rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(18px);
+      text-align: center;
+    }
+
+    .logo-wrap {
+      width: 70px;
+      height: 70px;
+      border-radius: 22px;
+      margin: 0 auto 18px;
+      background: radial-gradient(circle at 20% 0, #f9fafb 0, #e0f2fe 20%, #1d4ed8 50%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 38px;
+      font-weight: 700;
+      box-shadow:
+        0 0 18px rgba(56, 189, 248, 0.7),
+        0 0 38px rgba(37, 99, 235, 0.8);
+    }
+
+    h2 {
+      margin-bottom: 4px;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 22px;
+    }
+
+    .input-box {
+      text-align: left;
+      margin-bottom: 14px;
+    }
+
+    .input-box label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--text-sub);
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--text-main);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .input-box input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,229,255,0.2);
+    }
+
+    .btn-primary {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      border: none;
+      color: #020617;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.45);
+    }
+
+    .links {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--accent-soft);
+      transition: 0.15s;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- glowing blobs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="card">
+
+    <div class="logo-wrap">J</div>
+
+    <h2>Welcome Back</h2>
+    <div class="subtitle">Login to continue to your Jarvis dashboard</div>
+
+    <form method="POST">
+      <div class="input-box">
+        <label>Username or Email</label>
+        <input type="text" name="username_or_email" placeholder="Enter username or email" required>
+      </div>
+
+      <div class="input-box">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <button class="btn-primary">Login</button>
+    </form>
+
+    <div class="links">
+      <p>Don't have an account? <a href="/signup">Create one</a></p>
+      <p><a href="#">Forgot password?</a></p>
+      <p><a href="/entrance">← Back to Entrance</a></p>
+    </div>
+
+  </div>
+
+</body>
+</html>
