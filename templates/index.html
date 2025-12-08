@@ -1,136 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jarvis Assistant</title>
-    <style>
-        /* 🌑 Dark Theme */
-        body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <title>Jarvis Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        h1 {
-            color: #58a6ff;
-            margin-bottom: 30px;
-        }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        .btn-container {
-            display: flex;
-            gap: 20px;
-        }
+  <style>
+    :root {
+      --bg: #020617;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --accent: #00e5ff;
+      --accent-soft: #38bdf8;
+      --text-main: #e5e7eb;
+      --text-sub: #9ca3af;
+      --border: rgba(148,163,184,0.35);
+      --radius: 22px;
+    }
 
-        button {
-            background-color: #21262d;
-            color: #c9d1d9;
-            border: 2px solid #30363d;
-            padding: 12px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.2s ease;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        button:hover {
-            background-color: #58a6ff;
-            color: #0d1117;
-            border-color: #58a6ff;
-            transform: scale(1.05);
-        }
+    html, body {
+      height: 100%;
+    }
 
-        .status {
-            margin-top: 30px;
-            font-size: 18px;
-            color: #8b949e;
-            text-align: center;
-            width: 80%;
-        }
+    body {
+      min-height: 100vh;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 45%),
+                  radial-gradient(circle at bottom right, #0f172a 0, #020617 55%);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
 
-        footer {
-            position: fixed;
-            bottom: 15px;
-            font-size: 13px;
-            color: #484f58;
-        }
-    </style>
+    /* Glowing background blobs */
+    .orb {
+      position: fixed;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      filter: blur(40px);
+      opacity: 0.35;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .orb-1 { background: #22d3ee; top: -60px; left: -40px; }
+    .orb-2 { background: #6366f1; bottom: -80px; right: -40px; }
+
+    /* NAVBAR */
+    .navbar {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid rgba(148,163,184,0.35);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a {
+      color: var(--text-sub);
+      text-decoration: none;
+      margin-left: 14px;
+      font-size: 14px;
+      transition: 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-soft);
+    }
+        .nav-username {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-right: 10px;
+    }
+
+    .logout-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.8);
+    }
+
+    .logout-btn:hover {
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      color: #020617;
+      border-color: transparent;
+    }
+
+
+    /* MAIN AREA */
+    .main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px 32px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 26px 24px 22px;
+      text-align: center;
+      box-shadow:
+        0 18px 45px rgba(15,23,42,0.8),
+        0 0 0 1px rgba(15,23,42,0.7);
+      backdrop-filter: blur(18px);
+    }
+
+    .logo-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 20px;
+      margin: 0 auto 14px;
+      background: radial-gradient(circle at 20% 0, #f9fafb 0, #e0f2fe 20%, #1d4ed8 50%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 32px;
+      font-weight: 700;
+      box-shadow:
+        0 0 18px rgba(56,189,248,0.7),
+        0 0 38px rgba(37,99,235,0.8);
+    }
+
+    h1 {
+      margin-bottom: 6px;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      background: rgba(148,163,184,0.15);
+      border: 1px solid rgba(148,163,184,0.45);
+      padding: 12px;
+      width: 100%;
+      border-radius: 999px;
+      color: var(--text-main);
+      font-size: 14px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      color: #020617;
+      border-color: transparent;
+      box-shadow: 0 10px 26px rgba(56,189,248,0.45);
+      transform: translateY(-1px);
+    }
+
+    .status {
+      margin-top: 18px;
+      font-size: 14px;
+      color: var(--text-sub);
+      min-height: 40px;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 14px 8px 18px;
+      color: var(--text-sub);
+      font-size: 13px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 10px 14px;
+      }
+      .nav-title {
+        font-size: 18px;
+      }
+      .main {
+        align-items: flex-start;
+        padding-top: 24px;
+      }
+      .card {
+        max-width: 380px;
+        padding: 22px 18px 20px;
+        margin-top: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <h1>🎙️ Jarvis Assistant</h1>
-    
-    <div class="btn-container">
-        <button id="start-btn">🎤 Give Command</button>
-        <button id="stop-btn">🛑 Stop Command</button>
+  <!-- Glowing background -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nav-title">Jarvis</div>
+    <div class="nav-links">
+      {% if session.get('user') %}
+        <span class="nav-username">Hi, {{ session['user'] }}</span>
+        <a href="/logout" class="logout-btn">Logout</a>
+      {% else %}
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      {% endif %}
     </div>
+  </div>
 
-    <div class="status" id="status-text">Waiting for your command...</div>
 
-    <footer>Made with ❤️ by Dev Patmase</footer>
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <div class="card">
+      <div class="logo-wrap">J</div>
 
-    <script>
-        const startBtn = document.getElementById('start-btn');
-        const stopBtn = document.getElementById('stop-btn');
-        const statusText = document.getElementById('status-text');
+      <h1>🎙️ Jarvis Assistant</h1>
+      <div class="subtitle">Speak your command and let Jarvis handle the rest.</div>
 
-        startBtn.addEventListener('click', async () => {
-            statusText.textContent = "🎧 Listening...";
-            
-            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-            recognition.lang = "en-US";
-            recognition.start();
+      <button id="start-btn" class="btn">🎤 Give Command</button>
+      <button id="stop-btn" class="btn">🛑 Stop Command</button>
 
-            recognition.onresult = async (event) => {
-                const command = event.results[0][0].transcript;
-                statusText.textContent = `🗣️ You said: "${command}"`;
+      <div class="status" id="status-text">Waiting for your command...</div>
+    </div>
+  </div>
 
-                // Send the recognized text to Flask
-                try {
-                    const res = await fetch("/give_command", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ command })
-                    });
+  <footer>Made with ❤️ by Dev Patmase</footer>
 
-                    if (!res.ok) {
-                        statusText.textContent = "⚠️ Server error. Try again.";
-                        return;
-                    }
+  <script>
+    const startBtn = document.getElementById("start-btn");
+    const stopBtn = document.getElementById("stop-btn");
+    const statusText = document.getElementById("status-text");
 
-                    const data = await res.json();
-                    const status = data.status;
+    startBtn.addEventListener("click", () => {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = "en-US";
+      recognition.start();
 
-                    // Display response (HTML safe)
-                    statusText.innerHTML = status;
+      statusText.textContent = "🎧 Listening...";
 
-                    // 🔗 Auto open link if present
-                    const match = status.match(/href='(.*?)'/);
-                    if (match && match[1]) {
-                        window.open(match[1], "_blank");
-                    }
-                } catch (error) {
-                    statusText.textContent = "⚠️ Error connecting to server.";
-                }
-            };
+      recognition.onresult = async (event) => {
+        const command = event.results[0][0].transcript;
+        statusText.textContent = `🗣️ You said: "${command}"`;
 
-            recognition.onerror = () => {
-                statusText.textContent = "⚠️ Could not capture voice.";
-            };
-        });
+        try {
+          const res = await fetch("/give_command", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ command })
+          });
 
-        stopBtn.addEventListener('click', async () => {
-            const res = await fetch("/stop_command", { method: "POST" });
-            const data = await res.json();
-            statusText.textContent = data.status;
-        });
-    </script>
+          const data = await res.json();
+          statusText.innerHTML = data.status;
+
+          // Auto open link
+          const match = data.status.match(/href='(.*?)'/);
+          if (match) window.open(match[1], "_blank");
+
+        } catch (error) {
+          statusText.textContent = "⚠️ Error connecting to server.";
+        }
+      };
+    });
+
+    stopBtn.addEventListener("click", async () => {
+      const res = await fetch("/stop_command", { method: "POST" });
+      const data = await res.json();
+      statusText.textContent = data.status;
+    });
+  </script>
 
 </body>
 </html>
