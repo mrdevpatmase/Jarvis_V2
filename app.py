@@ -32,7 +32,7 @@ def logout():
     return redirect(url_for('welcome'))   # or 'home' if you want
 
 
-@app.route('/')
+@app.route('/welcome')
 def home():
     return render_template('index.html')
 
