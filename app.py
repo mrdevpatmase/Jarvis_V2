@@ -25,21 +25,116 @@ USERS = {}     # structure: USERS["username"] = {full_name, email, password_hash
 # ------------------------------
 
 
-@app.route('/logout')
-def logout():
-    session.clear()
-    flash("Logged out successfully.", "info")
-    return redirect(url_for('welcome'))   # or 'home' if you want
+# @app.route('/logout')
+# def logout():
+#     session.clear()
+#     flash("Logged out successfully.", "info")
+#     return redirect(url_for('welcome'))   # or 'home' if you want
 
 
-@app.route('/welcome')
-def home():
+# @app.route('/welcome')
+# def home():
+#     return render_template('index.html')
+
+
+# @app.route('/')
+# def welcome():
+#     return render_template('welcome.html')
+
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     if request.method == 'POST':
+#         ident = request.form.get("username_or_email")
+#         pwd = request.form.get("password")
+
+#         # Check username
+#         user = users_collection.find_one({"username": ident})
+
+#         # Or check email
+#         if not user:
+#             user = users_collection.find_one({"email": ident})
+
+#         if not user or not check_password_hash(user["password_hash"], pwd):
+#             flash("Invalid username/email or password.", "danger")
+#             return redirect(url_for("login"))
+
+#         session["user"] = user["username"]
+#         flash("Login successful!", "success")
+#         return redirect(url_for('home'))
+
+#     return render_template('login.html')
+
+
+
+
+# @app.route('/signup', methods=['GET', 'POST'])
+# def signup():
+#     if request.method == 'POST':
+#         full_name = request.form.get("full_name")
+#         username = request.form.get("username")
+#         email = request.form.get("email")
+#         pwd = request.form.get("password")
+#         pwd2 = request.form.get("password2")
+
+#         if pwd != pwd2:
+#             flash("Passwords do not match.", "danger")
+#             return redirect(url_for('signup'))
+
+#         # Check username
+#         if users_collection.find_one({"username": username}):
+#             flash("Username already taken.", "danger")
+#             return redirect(url_for('signup'))
+
+#         # Check email
+#         if users_collection.find_one({"email": email}):
+#             flash("Email already registered.", "danger")
+#             return redirect(url_for('signup'))
+
+#         password_hash = generate_password_hash(pwd)
+
+#         users_collection.insert_one({
+#             "full_name": full_name,
+#             "username": username,
+#             "email": email,
+#             "password_hash": password_hash
+#         })
+
+#         flash("Account created successfully! Please log in.", "success")
+#         return redirect(url_for('login'))
+
+#     return render_template('signup.html')
+
+
+# ------------------------------
+# ROUTES FOR FRONTEND PAGES
+# ------------------------------
+
+@app.route('/')
+def welcome_page():
+    """Entrance page: Login / Signup / Guest"""
+    return render_template('welcome.html')
+
+
+@app.route('/home')
+def home_page():
+    """Main Jarvis page after login or guest"""
     return render_template('index.html')
 
 
-@app.route('/')
-def welcome():
-    return render_template('welcome.html')
+@app.route('/guest')
+def guest():
+    """Guest session"""
+    session['user'] = "Guest"
+    return redirect(url_for('home_page'))
+
+
+@app.route('/logout')
+def logout():
+    """Logout and return to welcome page"""
+    session.clear()
+    flash("Logged out successfully.", "info")
+    return redirect(url_for('welcome_page'))
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -47,12 +142,9 @@ def login():
         ident = request.form.get("username_or_email")
         pwd = request.form.get("password")
 
-        # Check username
-        user = users_collection.find_one({"username": ident})
-
-        # Or check email
-        if not user:
-            user = users_collection.find_one({"email": ident})
+        # Find user by username OR email
+        user = users_collection.find_one({"username": ident}) or \
+               users_collection.find_one({"email": ident})
 
         if not user or not check_password_hash(user["password_hash"], pwd):
             flash("Invalid username/email or password.", "danger")
@@ -60,11 +152,9 @@ def login():
 
         session["user"] = user["username"]
         flash("Login successful!", "success")
-        return redirect(url_for('home'))
+        return redirect(url_for('home_page'))
 
     return render_template('login.html')
-
-
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -80,12 +170,10 @@ def signup():
             flash("Passwords do not match.", "danger")
             return redirect(url_for('signup'))
 
-        # Check username
         if users_collection.find_one({"username": username}):
             flash("Username already taken.", "danger")
             return redirect(url_for('signup'))
 
-        # Check email
         if users_collection.find_one({"email": email}):
             flash("Email already registered.", "danger")
             return redirect(url_for('signup'))
