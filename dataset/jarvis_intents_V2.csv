@@ -1,0 +1,964 @@
+command,intent
+what time now,get_time
+time batao,get_time
+jarvis time kya hai,get_time
+pls tell time,get_time
+bro time?,get_time
+time bolo,get_time
+kitna time hua,get_time
+current time kya hai,get_time
+whats d tym,get_time
+tym plz,get_time
+tell me time rn,get_time
+check time,get_time
+can u tell me d time,get_time
+exact time pls,get_time
+clock kya bol raha,get_time
+show me time,get_time
+tell time quickly,get_time
+time right now?,get_time
+update: time?,get_time
+need the time,get_time
+aaj ka time bata,get_time
+hey what's the time?,get_time
+give me time,get_time
+abhi time?,get_time
+can u check time,get_time
+tell me the hour,get_time
+what hour is it,get_time
+time chahiye,get_time
+current hour btana,get_time
+jarvis wts the time,get_time
+open time info,get_time
+quick time check,get_time
+how late is it,get_time
+show clock,get_time
+clock open,get_time
+i want to know time,get_time
+read the time,get_time
+tm kya hai,get_time
+time dekh,get_time
+mujhe time chahiye,get_time
+tell present time,get_time
+clock pls,get_time
+aj ka time,get_time
+kitna baj gya,get_time
+how much time now,get_time
+give me today’s time,get_time
+display time,get_time
+pls check clock,get_time
+tell me updated time,get_time
+exact current time,get_time
+what does clock show,get_time
+time now bolo,get_time
+abhi kitne baje,get_time
+kya time ho raha,get_time
+time?,get_time
+current time?,get_time
+now time?,get_time
+abhi kya time?,get_time
+time kitna?,get_time
+btayie time,get_time
+pls time check kar,get_time
+show exact time,get_time
+clock show time,get_time
+jarvis time batao,get_time
+kitne baje hain?,get_time
+pls bolo time,get_time
+haan time kya hai?,get_time
+what's the clock saying?,get_time
+tell me exact hour,get_time
+hour batao,get_time
+tell me present hour,get_time
+time update karo,get_time
+time info do,get_time
+abhi clock kya bol rha,get_time
+need time info,get_time
+show me current hour,get_time
+exact hour please,get_time
+rt now time?,get_time
+tell me wts the time,get_time
+quickly tell time,get_time
+buddy what's time,get_time
+boss time?,get_time
+pls jarvis current time,get_time
+give current time detail,get_time
+hm abhi kya time,get_time
+send me time,get_time
+current clock reading,get_time
+tell me today's hour,get_time
+abhi ke time bolo,get_time
+clock value?,get_time
+kitna waqt hua,get_time
+present time check,get_time
+wt is time,get_time
+time printed?,get_time
+please provide current time,get_time
+fatafat time bata,get_time
+now what's time?,get_time
+tell me right time,get_time
+upto-date time?,get_time
+time reading?,get_time
+current time send karo,get_time
+google python tutorial,search_google
+search ai topics,search_google
+look up today news,search_google
+google weather update,search_google
+find java course,search_google
+google machine learning basics,search_google
+search trending topics,search_google
+look up stock prices,search_google
+google sports news,search_google
+search about india,search_google
+find best laptops,search_google
+google science articles,search_google
+look up new movies,search_google
+search biography of tesla,search_google
+find nearby cafes google,search_google
+search healthy recipes,search_google
+google latest technology,search_google
+look up space facts,search_google
+search cricket scores,search_google
+google motivational quotes,search_google
+search fitness tips,search_google
+google how to learn coding,search_google
+find jobs on google,search_google
+google study material,search_google
+look for online courses,search_google
+search wifi troubleshooting,search_google
+google map directions,search_google
+search cartoon pics,search_google
+google funny memes,search_google
+search exam results,search_google
+find maths solutions google,search_google
+google top colleges,search_google
+look up free books,search_google
+google free udemy courses,search_google
+search best phones 2025,search_google
+find how to make websites,search_google
+google portfolio templates,search_google
+search time management tips,search_google
+google mobile price,search_google
+look up how to cook pasta,search_google
+search weather tomorrow,search_google
+google holidays list,search_google
+find railway timing,search_google
+google open jarvis projects,search_google
+search ai interview questions,search_google
+google project ideas,search_google
+search c++ programs,search_google
+google python practice,search_google
+look up github tutorial,search_google
+search youtube downloader,search_google
+google whatsapp web,search_google
+search web dev learning path,search_google
+google traffic jam update,search_google
+search historical events,search_google
+google free icons,search_google
+look up instagram news,search_google
+search government schemes,search_google
+google email login help,search_google
+search browser shortcuts,search_google
+google best coding editors,search_google
+look for internship,search_google
+google portfolio inspiration,search_google
+search how to lose weight,search_google
+google calculator,search_google
+search celebrity news,search_google
+find netflix top shows,search_google
+google ipl news,search_google
+search gym workout plan,search_google
+google travel destinations,search_google
+look up motivation videos,search_google
+search weather in mumbai,search_google
+google trending hashtags,search_google
+search budget smartphones,search_google
+google university info,search_google
+look up renewable energy,search_google
+search free resume templates,search_google
+google interview tips,search_google
+look for ai datasets,search_google
+search chatbot examples,search_google
+google world map,search_google
+find meaning of algorithm,search_google
+google coding challenges,search_google
+look up password reset help,search_google
+search good restaurants,search_google
+google best headphones,search_google
+find how to do meditation,search_google
+google cool wallpapers,search_google
+search for windows tricks,search_google
+google Cricket match today,search_google
+search cyber security basics,search_google
+look up health benefits of tea,search_google
+google free api list,search_google
+search github open source projects,search_google
+google bootstrap themes,search_google
+find good study playlist,search_google
+google latest AI tools,search_google
+search python errors,search_google
+google exam timetable,search_google
+youtube python tutorial,search_youtube
+play workout music,search_youtube
+search gaming videos,search_youtube
+play bollywood songs,search_youtube
+find cat videos,search_youtube
+play lofi beats,search_youtube
+youtube cooking recipe,search_youtube
+find standup comedy,search_youtube
+search movie trailers,search_youtube
+play meditation music,search_youtube
+youtube learning playlist,search_youtube
+find interview tips video,search_youtube
+search coding lecture,search_youtube
+play random songs,search_youtube
+play romantic songs,search_youtube
+youtube tech review,search_youtube
+search football highlights,search_youtube
+find travel vlog,search_youtube
+show live news youtube,search_youtube
+play study music,search_youtube
+search motivational speech,search_youtube
+play english songs,search_youtube
+find youtube shorts,search_youtube
+search yoga tutorials,search_youtube
+play piano tutorial,search_youtube
+find cartoon videos,search_youtube
+search maths lectures,search_youtube
+play cricket highlights,search_youtube
+find latest songs,search_youtube
+play sad songs,search_youtube
+youtube dance tutorial,search_youtube
+find skincare tips video,search_youtube
+search engineering videos,search_youtube
+play instrumental songs,search_youtube
+search comedy scenes,search_youtube
+play spiritual music,search_youtube
+find documentary videos,search_youtube
+search bollywood trailers,search_youtube
+play bhajan songs,search_youtube
+find startup motivation,search_youtube
+play birthday songs,search_youtube
+search hacking tutorial,search_youtube
+play kids rhymes,search_youtube
+find cricket news youtube,search_youtube
+play punjabi songs,search_youtube
+search fitness training videos,search_youtube
+play relaxing rain sounds,search_youtube
+find jeep offroad videos,search_youtube
+play animal videos,search_youtube
+search nature sounds,search_youtube
+find programming videos,search_youtube
+play funny clips,search_youtube
+find NASA videos,search_youtube
+play indian songs,search_youtube
+search hindi news youtube,search_youtube
+play dubstep music,search_youtube
+play remix songs youtube,search_youtube
+search football analysis,search_youtube
+play classical music,search_youtube
+find vloggers youtube,search_youtube
+play trending youtube videos,search_youtube
+find AI videos,search_youtube
+play anime edits,search_youtube
+search minecraft gameplay,search_youtube
+play car review videos,search_youtube
+find phone review videos,search_youtube
+search makeup tutorial,search_youtube
+play devotional songs,search_youtube
+find jdm car videos,search_youtube
+play gym songs,search_youtube
+search study motivation,search_youtube
+play funny indian videos,search_youtube
+youtube life hacks,search_youtube
+find news live,search_youtube
+search weather report,search_youtube
+play violin music,search_youtube
+find wedding songs,search_youtube
+play english podcast,search_youtube
+search coding bootcamp videos,search_youtube
+find hairstyle tutorial,search_youtube
+play superhero clips,search_youtube
+search free course playlist,search_youtube
+play startup stories,search_youtube
+find web dev tutorials,search_youtube
+youtube interview prep,search_youtube
+find inspirational clips,search_youtube
+play rainy ambience,search_youtube
+search space documentaries,search_youtube
+find funny fails youtube,search_youtube
+play edm music,search_youtube
+search medical videos,search_youtube
+find biology lecture,search_youtube
+play tiktok compilation,search_youtube
+youtube hindi cartoons,search_youtube
+find house tour videos,search_youtube
+play relaxing piano songs,search_youtube
+open notepad,open_notepad
+launch notepad,open_notepad
+start notepad,open_notepad
+open blank notepad,open_notepad
+jarvis open notepad,open_notepad
+notepad please,open_notepad
+run notepad app,open_notepad
+open new notepad file,open_notepad
+start notepad editor,open_notepad
+open notepad window,open_notepad
+open text editor,open_notepad
+create a note,open_notepad
+start typing pad,open_notepad
+open writing pad,open_notepad
+activate notepad,open_notepad
+launch windows notepad,open_notepad
+open notepad quickly,open_notepad
+start a new note,open_notepad
+open simple editor,open_notepad
+open typing window,open_notepad
+start writing app,open_notepad
+bring up notepad,open_notepad
+open notepad instantly,open_notepad
+run note editor,open_notepad
+open document pad,open_notepad
+open txt editor,open_notepad
+notepad launch,open_notepad
+run notepad instantly,open_notepad
+start new notepad window,open_notepad
+create document in notepad,open_notepad
+open notepad software,open_notepad
+open a writing file,open_notepad
+start notes app,open_notepad
+launch writing software,open_notepad
+open pad for writing,open_notepad
+run basic notepad,open_notepad
+open offline editor,open_notepad
+start plain text pad,open_notepad
+jarvis start notepad,open_notepad
+notepad open kar,open_notepad
+open typing app,open_notepad
+open pad right now,open_notepad
+start empty notepad,open_notepad
+launch text pad,open_notepad
+bring notepad window,open_notepad
+init notepad,open_notepad
+open writing document,open_notepad
+make new note,open_notepad
+start text editor thin,open_notepad
+type karne ke liye notepad,open_notepad
+start writing mode,open_notepad
+open typing screen,open_notepad
+bring editing pad,open_notepad
+open notepad utility,open_notepad
+start notepad session,open_notepad
+open write area,open_notepad
+new text file,open_notepad
+create blank document,open_notepad
+open notepad command,open_notepad
+start document editor,open_notepad
+run editor now,open_notepad
+access notepad app,open_notepad
+open a note quickly,open_notepad
+start window notepad,open_notepad
+launch note window,open_notepad
+open scratchpad,open_notepad
+run typing tool,open_notepad
+new notepad session,open_notepad
+open notebook app,open_notepad
+start plain writing app,open_notepad
+open text sheet,open_notepad
+bring up text window,open_notepad
+start pad,open_notepad
+open quick pad,open_notepad
+launch editor instantly,open_notepad
+open text environment,open_notepad
+writing document open,open_notepad
+notepad chalu karo,open_notepad
+run writing software,open_notepad
+start editor,open_notepad
+open file editor,open_notepad
+text pad open,open_notepad
+open blank writing pad,open_notepad
+new note now,open_notepad
+open pad for typing,open_notepad
+launch simple editor,open_notepad
+start default notepad,open_notepad
+open notepad program,open_notepad
+run notepad screen,open_notepad
+start notepad tool,open_notepad
+open notepad fast,open_notepad
+create text page,open_notepad
+open note writing window,open_notepad
+run notepad right away,open_notepad
+open plain notepad,open_notepad
+start note typing,open_notepad
+open calculator,open_calculator
+start calculator,open_calculator
+launch calculator,open_calculator
+calculator please,open_calculator
+open windows calculator,open_calculator
+run calculator app,open_calculator
+open calc mode,open_calculator
+start new calculation,open_calculator
+open maths calculator,open_calculator
+bring up calculator,open_calculator
+calc open karo,open_calculator
+jarvis open calculator,open_calculator
+open calculation tool,open_calculator
+start calculator instantly,open_calculator
+activate calculator,open_calculator
+calculator now,open_calculator
+start calculator window,open_calculator
+run math app,open_calculator
+open calc fast,open_calculator
+start quick calculator,open_calculator
+run basic calculator,open_calculator
+open simple calculator,open_calculator
+launch math tool,open_calculator
+bring calculator screen,open_calculator
+open number calculator,open_calculator
+start calculate mode,open_calculator
+open calculator program,open_calculator
+run calculator software,open_calculator
+calculator on please,open_calculator
+open instant calculator,open_calculator
+start arithmetic app,open_calculator
+maths app open,open_calculator
+start calculator now,open_calculator
+open calc app quickly,open_calculator
+start calculating,open_calculator
+open maths tool,open_calculator
+launch calc screen,open_calculator
+bring up calc tool,open_calculator
+open scientific calc,open_calculator
+start simple calc,open_calculator
+open calculator system,open_calculator
+start math window,open_calculator
+calculator khol do,open_calculator
+open addition tool,open_calculator
+calculator shuru karo,open_calculator
+open number pad,open_calculator
+init calculator,open_calculator
+launch math window,open_calculator
+start calc session,open_calculator
+open calculation screen,open_calculator
+bring calculator instantly,open_calculator
+run calculator command,open_calculator
+open basic math tool,open_calculator
+start computing app,open_calculator
+calculator open immediately,open_calculator
+start maths program,open_calculator
+open calculator utility,open_calculator
+activate math calculator,open_calculator
+open arithmetic program,open_calculator
+start calc tool,open_calculator
+jarvis launch calc,open_calculator
+open calculator help,open_calculator
+start math operation tool,open_calculator
+open quick calculation,open_calculator
+run quick calculator,open_calculator
+start math solver,open_calculator
+calculator chalu karo,open_calculator
+launch arithmetic app,open_calculator
+open multiplication tool,open_calculator
+calculator open rn,open_calculator
+bring calculation app,open_calculator
+start calc quickly,open_calculator
+open instant math tool,open_calculator
+activate calc window,open_calculator
+run calc immediately,open_calculator
+open calculating pad,open_calculator
+start simple math tool,open_calculator
+launch offline calculator,open_calculator
+run maths helper,open_calculator
+start number computing,open_calculator
+open basic arithmetic,open_calculator
+open tool for math,open_calculator
+start mathematics calculator,open_calculator
+run calculating program,open_calculator
+open calc mode now,open_calculator
+start calculator interface,open_calculator
+open calculator instantly,open_calculator
+bring up math window,open_calculator
+calc startup,open_calculator
+run calculator utility,open_calculator
+start quick math app,open_calculator
+open desktop calculator,open_calculator
+activate calculation pad,open_calculator
+open calc shortcut,open_calculator
+calculator mode start,open_calculator
+open calculating window,open_calculator
+open whatsapp,open_whatsapp
+launch whatsapp,open_whatsapp
+start whatsapp,open_whatsapp
+open whatsapp web,open_whatsapp
+jarvis open whatsapp,open_whatsapp
+check whatsapp messages,open_whatsapp
+open my whatsapp,open_whatsapp
+start whatsapp chat,open_whatsapp
+open whatsapp right now,open_whatsapp
+whatsapp please,open_whatsapp
+run whatsapp,open_whatsapp
+bring up whatsapp,open_whatsapp
+activate whatsapp,open_whatsapp
+open whatsapp page,open_whatsapp
+start whatsapp window,open_whatsapp
+launch whatsapp messenger,open_whatsapp
+whatsapp chalu karo,open_whatsapp
+open whatsapp instantly,open_whatsapp
+start whatsapp session,open_whatsapp
+access whatsapp,open_whatsapp
+open my chats,open_whatsapp
+open whatsapp conversations,open_whatsapp
+start my whatsapp,open_whatsapp
+open whatsapp fast,open_whatsapp
+launch whatsapp quickly,open_whatsapp
+open whatsapp messages,open_whatsapp
+check whatsapp now,open_whatsapp
+start chat app,open_whatsapp
+open messenger whatsapp,open_whatsapp
+run whatsapp application,open_whatsapp
+whatsapp window open,open_whatsapp
+whatsapp khol do,open_whatsapp
+start whatsapp asap,open_whatsapp
+bring whatsapp screen,open_whatsapp
+open whatsapp homepage,open_whatsapp
+launch my chat app,open_whatsapp
+open whatsapp dashboard,open_whatsapp
+whatsapp open karo,open_whatsapp
+activate chat window,open_whatsapp
+open whatsapp msg,open_whatsapp
+start my chat messages,open_whatsapp
+open WA chat,open_whatsapp
+run WA messenger,open_whatsapp
+open WA quickly,open_whatsapp
+start WA now,open_whatsapp
+open the chat app,open_whatsapp
+launch messaging app,open_whatsapp
+open whatsapp login,open_whatsapp
+start web whatsapp,open_whatsapp
+whatsapp load karo,open_whatsapp
+bring up my messages,open_whatsapp
+open direct whatsapp,open_whatsapp
+run whatsapp rn,open_whatsapp
+whatsapp launch now,open_whatsapp
+open whatsapp app instantly,open_whatsapp
+messenger open whatsapp,open_whatsapp
+start whatsapp in browser,open_whatsapp
+open whatsapp communication,open_whatsapp
+open WA web app,open_whatsapp
+bring up whatsapp fast,open_whatsapp
+open chat messenger,open_whatsapp
+run online whatsapp,open_whatsapp
+open whatsapp conversation now,open_whatsapp
+activate whatsapp messenger,open_whatsapp
+open chat section,open_whatsapp
+run chat window,open_whatsapp
+open whatsapp in chrome,open_whatsapp
+start chatting app,open_whatsapp
+launch whatsapp window instantly,open_whatsapp
+open whatsapp browse,open_whatsapp
+start whatsapp page quickly,open_whatsapp
+engage whatsapp,open_whatsapp
+whatsapp ki chats kholo,open_whatsapp
+open chat log whatsapp,open_whatsapp
+show whatsapp messages,open_whatsapp
+open WA now,open_whatsapp
+launch WA sessions,open_whatsapp
+run whatsapp menu,open_whatsapp
+whatsapp se chats open,open_whatsapp
+bring chat interface,open_whatsapp
+start messaging quickly,open_whatsapp
+open chat portal,open_whatsapp
+start whatsapp instantly,open_whatsapp
+whatsapp communication kholo,open_whatsapp
+open texting app,open_whatsapp
+launch web chats,open_whatsapp
+start whatsapp reading,open_whatsapp
+open WA homepage,open_whatsapp
+run whatsapp feed,open_whatsapp
+open personal chats,open_whatsapp
+launch whatsapp chat instantly,open_whatsapp
+start fast whatsapp,open_whatsapp
+open whatsapp access,open_whatsapp
+open WA messenger window,open_whatsapp
+start whatsapp utility,open_whatsapp
+activate whatsapp chat,open_whatsapp
+open whatsapp on browser,open_whatsapp
+open WA conversation,open_whatsapp
+open linkedin,open_linkedin
+launch linkedin,open_linkedin
+start linkedin,open_linkedin
+open linkedin profile,open_linkedin
+check linkedin updates,open_linkedin
+jarvis open linkedin,open_linkedin
+open linkedin dashboard,open_linkedin
+launch linkedin website,open_linkedin
+open linkedin homepage,open_linkedin
+access linkedin,open_linkedin
+open my linkedin account,open_linkedin
+start linkedin now,open_linkedin
+open linkedin feed,open_linkedin
+open linkedin network,open_linkedin
+bring up linkedin,open_linkedin
+activate linkedin,open_linkedin
+open linkedin notifications,open_linkedin
+start linkedin instantly,open_linkedin
+check my linkedin,open_linkedin
+open linkedin login,open_linkedin
+open professional profile,open_linkedin
+launch job portal linkedin,open_linkedin
+start linkedin session,open_linkedin
+open my career profile,open_linkedin
+linkedin khol do,open_linkedin
+open linkedin fast,open_linkedin
+open job updates linkedin,open_linkedin
+launch linkedin quickly,open_linkedin
+open linkdin (typo),open_linkedin
+open professional network,open_linkedin
+access linkedin site,open_linkedin
+open linkedin contacts,open_linkedin
+start linkedin application,open_linkedin
+open linkedin recruiting page,open_linkedin
+linkedin please,open_linkedin
+linkedin page open,open_linkedin
+open hiring posts linkedin,open_linkedin
+start job search linkedin,open_linkedin
+open inbox linkedin,open_linkedin
+launch linkedin feed instantly,open_linkedin
+access my linkedin feed,open_linkedin
+open linked in app,open_linkedin
+run linkedin,open_linkedin
+open workplace profile,open_linkedin
+start linkedin on browser,open_linkedin
+open business network,open_linkedin
+access professional updates,open_linkedin
+linkedin notifications open,open_linkedin
+open career dashboard,open_linkedin
+open linkedin page now,open_linkedin
+bring linkedin window,open_linkedin
+launch linkedin home,open_linkedin
+check linkedin posts,open_linkedin
+start professional account,open_linkedin
+open linkedin in chrome,open_linkedin
+linkedin open immediately,open_linkedin
+open job alerts linkedin,open_linkedin
+view linkedin profile,open_linkedin
+open linkedin posts quickly,open_linkedin
+launch linkedin today,open_linkedin
+linkedin now,open_linkedin
+open business profile,open_linkedin
+start networking site,open_linkedin
+open professional page,open_linkedin
+open linkedin timeline,open_linkedin
+start my linkedin page,open_linkedin
+open job network,open_linkedin
+open linkedin window instantly,open_linkedin
+launch linkedin session now,open_linkedin
+open your linkedin page,open_linkedin
+check linkedin jobs,open_linkedin
+go to linkedin account,open_linkedin
+open linkedin immediately,open_linkedin
+open hiring section linkedin,open_linkedin
+open resume section linkedin,open_linkedin
+start linkedin interface,open_linkedin
+show linkedin,open_linkedin
+bring up job portal,open_linkedin
+open job searching linkedin,open_linkedin
+linkedin professional feed,open_linkedin
+start linkedin fast,open_linkedin
+run linkedin website,open_linkedin
+open my profile page,open_linkedin
+launch job finder,open_linkedin
+open network section linkedin,open_linkedin
+open post creation linkedin,open_linkedin
+access connections linkedin,open_linkedin
+open career posts,open_linkedin
+check professional messages,open_linkedin
+launch linkedin right away,open_linkedin
+open recruiter feed,open_linkedin
+start my linkedin interface,open_linkedin
+open linked in network,open_linkedin
+launch profile page,open_linkedin
+open github,open_github
+launch github,open_github
+start github,open_github
+open my github,open_github
+open github profile,open_github
+check github repos,open_github
+open github dashboard,open_github
+jarvis open github,open_github
+open github website,open_github
+start github quickly,open_github
+github please,open_github
+open github account,open_github
+launch github page,open_github
+run github,open_github
+open github now,open_github
+open repository page,open_github
+access github site,open_github
+open my repositories,open_github
+open github repo list,open_github
+open github projects,open_github
+start coding repos,open_github
+open github immediately,open_github
+launch my github profile,open_github
+open code projects,open_github
+github khol do,open_github
+start version control github,open_github
+open dev profile github,open_github
+open pull requests github,open_github
+open issues github,open_github
+open starred repos github,open_github
+github window open,open_github
+start github feed,open_github
+open repo explorer github,open_github
+open source code github,open_github
+open forks section,open_github
+github run now,open_github
+open open-source projects,open_github
+launch github repos instantly,open_github
+open commits page github,open_github
+open github notifications,open_github
+github page please,open_github
+open git dashboard,open_github
+start github viewer,open_github
+open repo insights,open_github
+github profile open now,open_github
+access code repository,open_github
+open contribution graph,open_github
+start github portal,open_github
+open actions pipeline,open_github
+open github source,open_github
+go to github,open_github
+launch github hub,open_github
+open project folders github,open_github
+start collaboration github,open_github
+github account open karo,open_github
+open code space github,open_github
+start github immediately,open_github
+github web open,open_github
+open git version control,open_github
+open my git profile,open_github
+open github environment,open_github
+access my code,open_github
+open github panel,open_github
+start git website,open_github
+open github codebase,open_github
+open repo now,open_github
+github quick open,open_github
+launch dev repos,open_github
+open your github,open_github
+github online open,open_github
+open development repos,open_github
+start source code viewer,open_github
+open code hosting platform,open_github
+open repo dashboard,open_github
+start profile github,open_github
+open repository now,open_github
+launch github instantly,open_github
+open github interface,open_github
+start github environment,open_github
+open repo history,open_github
+check github account,open_github
+open github fast,open_github
+start git panel,open_github
+launch developer profile,open_github
+open my coding projects,open_github
+github account open now,open_github
+open cloud repo github,open_github
+open versioning platform,open_github
+github access now,open_github
+open coding resources github,open_github
+start repository viewer,open_github
+open dev environment github,open_github
+launch repo management github,open_github
+open spotify,open_spotify
+launch spotify,open_spotify
+start spotify,open_spotify
+play music on spotify,open_spotify
+spotify please,open_spotify
+open my spotify,open_spotify
+open spotify playlist,open_spotify
+start spotify app,open_spotify
+open spotify now,open_spotify
+jarvis open spotify,open_spotify
+play songs spotify,open_spotify
+launch spotify quickly,open_spotify
+run spotify,open_spotify
+open spotify album,open_spotify
+start listening spotify,open_spotify
+spotify open karo,open_spotify
+activate spotify,open_spotify
+bring up spotify,open_spotify
+open spotify window,open_spotify
+play spotify podcast,open_spotify
+open music player,open_spotify
+start music session,open_spotify
+run spotify music,open_spotify
+spotify launch now,open_spotify
+start spotify instantly,open_spotify
+open spotify application,open_spotify
+play trending spotify,open_spotify
+open spotify songs,open_spotify
+bring spotify screen,open_spotify
+open spotify device,open_spotify
+open spotify immediately,open_spotify
+play audio spotify,open_spotify
+open soundtracks spotify,open_spotify
+spotify run now,open_spotify
+open spotify streaming,open_spotify
+spotify khol do,open_spotify
+start listening session,open_spotify
+open music stuff spotify,open_spotify
+run spotify player,open_spotify
+launch spotify interface,open_spotify
+open my music spotify,open_spotify
+spotify please play,open_spotify
+activate streaming spotify,open_spotify
+spotify startup,open_spotify
+open music album,open_spotify
+launch audio player,open_spotify
+open lofi playlist,open_spotify
+start party songs spotify,open_spotify
+open hindi playlist spotify,open_spotify
+play romantic songs spotify,open_spotify
+open chill playlist spotify,open_spotify
+start spotify online,open_spotify
+spotify browser open,open_spotify
+open workout playlist,open_spotify
+open spotify web,open_spotify
+start spotify program,open_spotify
+open spotify feed,open_spotify
+run music app spotify,open_spotify
+spotify link open,open_spotify
+bring up playlist spotify,open_spotify
+open mix playlist spotify,open_spotify
+spotify audio open,open_spotify
+open vibing songs,open_spotify
+start song session spotify,open_spotify
+open edm playlist spotify,open_spotify
+run hindi songs spotify,open_spotify
+open calm music spotify,open_spotify
+bring music list spotify,open_spotify
+open study playlist spotify,open_spotify
+start devotional songs spotify,open_spotify
+spotify recommendations open,open_spotify
+launch top 50 playlist,open_spotify
+start music discovery spotify,open_spotify
+open top charts spotify,open_spotify
+open jazz playlist,open_spotify
+start music library,open_spotify
+open curated playlist spotify,open_spotify
+run indie songs spotify,open_spotify
+open rap playlist spotify,open_spotify
+start party playlist spotify,open_spotify
+open new releases spotify,open_spotify
+spotify albums open,open_spotify
+launch spotify browser,open_spotify
+music streaming open,open_spotify
+start classical playlist spotify,open_spotify
+open metal playlist spotify,open_spotify
+launch weekly playlist spotify,open_spotify
+open liked songs spotify,open_spotify
+open podcast section spotify,open_spotify
+start audiobooks spotify,open_spotify
+spotify open rn,open_spotify
+open spotify login,open_spotify
+start my music now,open_spotify
+spotify open immediately,open_spotify
+exit,exit
+quit,exit
+close jarvis,exit
+shutdown jarvis,exit
+stop jarvis,exit
+terminate app,exit
+close assistant,exit
+stop assistant,exit
+exit program,exit
+quit now,exit
+jarvis stop,exit
+end this,exit
+finish session,exit
+stop listening,exit
+terminate jarvis now,exit
+close application,exit
+exit immediately,exit
+i am done,exit
+bye jarvis,exit
+goodbye assistant,exit
+turn off jarvis,exit
+shut down assistant,exit
+stop running,exit
+end task jarvis,exit
+kill jarvis,exit
+exit assistant,exit
+end session,exit
+stop now,exit
+stop everything,exit
+please exit,exit
+jarvis shutdown karo,exit
+end the program,exit
+turn off now,exit
+close the app,exit
+stop service,exit
+exit service,exit
+leave program,exit
+jarvis leave,exit
+finish now,exit
+stop this system,exit
+terminate execution,exit
+stop completely,exit
+quit the program,exit
+end jarvis,exit
+i want to exit,exit
+close interface,exit
+shut jarvis down,exit
+terminate immediately,exit
+stop process,exit
+end assistant quickly,exit
+please shutdown,exit
+stop interaction,exit
+halt jarvis,exit
+exit routine,exit
+stop operations,exit
+disable jarvis,exit
+terminate functionality,exit
+quit assistant now,exit
+shut down immediately,exit
+stop bot,exit
+exit bot,exit
+goodbye now,exit
+bye assistant,exit
+stop your work,exit
+signature exit,exit
+jarvis turn off,exit
+end the assistant now,exit
+stop command execution,exit
+end program instantly,exit
+close everything,exit
+discontinue jarvis,exit
+halt operations,exit
+power off jarvis,exit
+stop responding,exit
+exit your session,exit
+terminate software,exit
+close down jarvis,exit
+freeze operations,exit
+stop module,exit
+stop assistant now,exit
+close system,exit
+jarvis disconnect,exit
+end assistant functionality,exit
+stop interface,exit
+bye system,exit
+close computing,exit
+turn system off,exit
+shutdown system,exit
+signing off,exit
+logout and exit,exit
+complete exit,exit
+final exit,exit
+wrap up session,exit
+abort jarvis,exit
+exit command,exit
+turn off assistant,exit
+end everything now,exit
