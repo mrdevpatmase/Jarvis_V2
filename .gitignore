@@ -20,3 +20,4 @@ env/
 
 # Other build/deployment files
 *.log
+.env
