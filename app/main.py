@@ -1,4 +1,4 @@
-from speech_text_transform import speech_to_text, text_to_speech
+from speech.speech_text_transform import speech_to_text, text_to_speech
 import datetime
 import webbrowser
 import os
@@ -9,7 +9,7 @@ import numpy as np
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
 from sklearn.exceptions import InconsistentVersionWarning
-from llm_intent_mapper import llm_predict_intent
+from core.llm_intent_mapper import llm_predict_intent
 
 # =========================
 # CONFIG

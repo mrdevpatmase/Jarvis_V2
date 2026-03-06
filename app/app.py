@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import os
 
 # 🔥 IMPORT ONLY THE BRAIN (TEXT → TEXT)
-from main import process_command
+from app.main import process_command
 
 # ==============================
 # DATABASE
