@@ -5,10 +5,15 @@
 # print(settings.DEBUG)
 
 
-from backend.config.logger import logger
+# from backend.config.logger import logger
 
-logger.info("Jarvis started successfully.")
+# logger.info("Jarvis started successfully.")
 
-logger.warning("This is a warning.")
+# logger.warning("This is a warning.")
 
-logger.error("This is an error.")
+# logger.error("This is an error.")
+
+
+from backend.ai.prompts import SYSTEM_PROMPT
+
+print(SYSTEM_PROMPT)
