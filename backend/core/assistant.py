@@ -33,7 +33,10 @@ class Assistant:
         conversation.add_user_message(user_message)
 
         # Ask LLM
-        response = llm.generate_response(user_message)
+
+        response = llm.generate_response(
+            conversation.get_history()
+        )
 
         # Store assistant response
         conversation.add_assistant_message(response)

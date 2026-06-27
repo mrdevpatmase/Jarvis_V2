@@ -10,6 +10,7 @@ from google.genai import types
 from backend.config.settings import settings
 from backend.config.logger import logger
 from backend.ai.prompts import SYSTEM_PROMPT
+from typing import List, Dict
 
 
 class LLM:
@@ -22,19 +23,29 @@ class LLM:
 
         self.model = settings.MODEL_NAME
 
-    def generate_response(self, user_message: str) -> str:
+    def generate_response(self, messages: List[Dict[str, str]]) -> str:
         """
-        Generate a response from Gemini.
+        Generate a response using the conversation history.
         """
 
         try:
+
+            prompt = ""
+
+            for message in messages:
+
+                if message["role"] == "user":
+                    prompt += f"User: {message['content']}\n"
+
+                else:
+                    prompt += f"Jarvis: {message['content']}\n"
 
             response = self.client.models.generate_content(
                 model=self.model,
                 config=types.GenerateContentConfig(
                     system_instruction=SYSTEM_PROMPT
                 ),
-                contents=user_message,
+                contents=prompt,
             )
 
             logger.info("LLM response generated successfully.")
