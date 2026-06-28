@@ -45,15 +45,29 @@
 # print(conversation.get_history())
 
 
-from backend.core.assistant import assistant
+# from backend.core.assistant import assistant
+
+# while True:
+
+#     user = input("You : ")
+
+#     if user.lower() == "exit":
+#         break
+
+#     response = assistant.process_message(user)
+
+#     print(f"\nJarvis : {response}\n")\
+
+
+from backend.core.router import router
 
 while True:
 
-    user = input("You : ")
+    message = input("You : ")
 
-    if user.lower() == "exit":
+    if message == "exit":
         break
 
-    response = assistant.process_message(user)
+    tool = router.route(message)
 
-    print(f"\nJarvis : {response}\n")
+    print(f"\nSelected Tool : {tool}\n")

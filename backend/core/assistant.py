@@ -4,7 +4,7 @@ Main Assistant Orchestrator.
 This is the heart of Jarvis.
 Every user request flows through this class.
 """
-
+from backend.core.context import context
 from backend.ai.conversation import conversation
 from backend.ai.llm import llm
 from backend.config.logger import logger
@@ -35,7 +35,7 @@ class Assistant:
         # Ask LLM
 
         response = llm.generate_response(
-            conversation.get_history()
+            context.build_context()
         )
 
         # Store assistant response

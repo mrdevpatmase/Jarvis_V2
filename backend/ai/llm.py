@@ -6,7 +6,6 @@ Responsible only for communicating with the language model.
 
 from google import genai
 from google.genai import types
-
 from backend.config.settings import settings
 from backend.config.logger import logger
 from backend.ai.prompts import SYSTEM_PROMPT
@@ -30,15 +29,17 @@ class LLM:
 
         try:
 
-            prompt = ""
+            prompt_lines = []
 
             for message in messages:
 
-                if message["role"] == "user":
-                    prompt += f"User: {message['content']}\n"
+                role = "User" if message["role"] == "user" else "Jarvis"
 
-                else:
-                    prompt += f"Jarvis: {message['content']}\n"
+                prompt_lines.append(
+                    f"{role}: {message['content']}"
+                )
+
+            prompt = "\n".join(prompt_lines)
 
             response = self.client.models.generate_content(
                 model=self.model,
@@ -50,7 +51,17 @@ class LLM:
 
             logger.info("LLM response generated successfully.")
 
-            return response.text
+            logger.info(f"Gemini Response: {response}")
+            logger.info(f"Gemini Text: {response.text}")
+
+
+            text = response.text
+
+            if not text:
+                logger.error("Gemini returned an empty response.")
+                return "I'm sorry, I couldn't generate a response."
+
+            return text
 
         except Exception as e:
 

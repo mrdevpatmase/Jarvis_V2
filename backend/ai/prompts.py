@@ -115,34 +115,40 @@ Explain important design decisions when necessary.
 # ==========================================================
 
 ROUTER_PROMPT = """
-Decide which tool should execute the user's request.
+You are Jarvis's routing engine.
+
+Your only job is to decide which tool should handle the user's request.
 
 Available tools:
 
-- browser
-- files
-- coding
-- system
-- media
-- memory
-- scheduler
+browser
+system
+files
+memory
+coding
+chat
 
-Return ONLY the tool name.
+Rules:
+
+Return ONLY ONE word.
 
 Examples:
 
-Open YouTube
+User: Open Chrome
 browser
 
-Open VS Code
+User: Open YouTube
+browser
+
+User: Shutdown my PC
 system
 
-Find resume.pdf
+User: Create a folder
 files
 
-Remember my interview is Monday
+User: Remember my birthday
 memory
 
-Create a reminder
-scheduler
+User: Explain recursion
+chat
 """
