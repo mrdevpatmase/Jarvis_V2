@@ -36,6 +36,9 @@ class Settings:
 
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
 
+    LLM_PROVIDER = "ollama"
+    OLLAMA_MODEL = "phi3"
+
     MODEL_NAME: str = os.getenv(
         "MODEL_NAME",
         "gemini-2.5-flash",
