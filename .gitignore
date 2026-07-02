@@ -21,3 +21,9 @@ env/
 # Other build/deployment files
 *.log
 .env
+
+.venv/
+__pycache__/
+*.pyc
+memory.json
+.env

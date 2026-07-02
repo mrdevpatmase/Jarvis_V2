@@ -1,18 +1,20 @@
 """
 Task Executor for Jarvis AI.
 
-Receives the selected tool from the router and executes it.
+Executes parsed Task objects using the appropriate tool.
 """
 
 from backend.config.logger import logger
+from backend.core.task import Task
 
 
 class Executor:
 
     def __init__(self):
+
         self.tools = {}
 
-    def register_tool(self, name: str, tool):
+    def register_tool(self, name: str, tool) -> None:
         """
         Register a tool.
         """
@@ -21,26 +23,26 @@ class Executor:
 
         logger.info(f"Registered tool: {name}")
 
-    def execute(self, tool_name: str, user_message: str):
+    def execute(self, task: Task):
         """
-        Execute the selected tool.
-
-        Args:
-            tool_name: Tool selected by the router.
-            user_message: Original user request.
+        Execute a parsed task.
         """
 
-        logger.info(f"Executing tool: {tool_name}")
+        logger.info(
+            f"Executing {task.tool}.{task.action}"
+        )
 
-        tool = self.tools.get(tool_name)
+        tool = self.tools.get(task.tool)
 
         if tool is None:
 
-            logger.error(f"Tool '{tool_name}' not found.")
+            logger.warning(
+                f"Tool '{task.tool}' not found."
+            )
 
-            return f"Tool '{tool_name}' not found."
+            return f"Tool '{task.tool}' is not available."
 
-        return tool.execute(user_message)
+        return tool.execute(task)
 
 
 executor = Executor()

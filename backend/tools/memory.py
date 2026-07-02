@@ -1,10 +1,10 @@
 """
-Memory Tool for Jarvis AI.
-
-Stores and retrieves user information.
+Persistent Memory Tool for Jarvis AI.
 """
 
+import json
 import re
+from pathlib import Path
 
 from backend.tools.base_tool import BaseTool
 from backend.config.logger import logger
@@ -13,39 +13,100 @@ from backend.config.logger import logger
 class MemoryTool(BaseTool):
 
     def __init__(self):
-        self.memory = {}
 
-    def execute(self, user_message: str):
+        BASE_DIR = Path(__file__).resolve().parent.parent
 
-        message = user_message.lower().strip()
+        self.memory_file = BASE_DIR / "data" / "memory.json"
 
-        # Store user's name
-        if "my name is" in message:
+        self.memory = self.load_memory()
 
-            match = re.search(r"my name is (.+)", message)
+    def load_memory(self):
 
-            if match:
+        try:
 
-                name = match.group(1).strip().title()
+            if not self.memory_file.exists():
 
-                self.memory["name"] = name
+                logger.info("memory.json not found. Creating new memory.")
 
-                logger.info(f"Stored name: {name}")
+                return {}
 
-                return f"Nice to meet you, {name}. I'll remember your name."
+            with open(self.memory_file, "r", encoding="utf-8") as file:
 
-        # Retrieve user's name
-        if "what is my name" in message:
+                data = json.load(file)
 
-            name = self.memory.get("name")
+                logger.info(f"Loaded memory: {data}")
 
-            if name:
+                return data
 
-                return f"Your name is {name}."
+        except Exception as e:
 
-            return "I don't know your name yet."
+            logger.exception(f"Memory Load Error: {e}")
 
-        return "Memory tool couldn't understand the request."
+            return {}
+
+    def save_memory(self):
+
+        try:
+
+            self.memory_file.parent.mkdir(parents=True, exist_ok=True)
+
+            with open(self.memory_file, "w", encoding="utf-8") as file:
+
+                json.dump(
+                    self.memory,
+                    file,
+                    indent=4
+                )
+
+            logger.info(f"Memory saved successfully: {self.memory}")
+
+        except Exception as e:
+
+            logger.exception(f"Memory Save Error: {e}")
+
+    def execute(self, task):
+
+        action = task.action
+
+        if action == "store":
+
+            key = task.parameters.get("key")
+            value = task.parameters.get("value")
+
+            self.memory[key] = value
+
+            self.save_memory()
+
+            logger.info(f"Stored {key}: {value}")
+
+            return f"I'll remember your {key}."
+
+        elif action == "retrieve":
+
+            key = task.parameters.get("key")
+
+            value = self.memory.get(key)
+
+            if value is None:
+                return f"I don't know your {key} yet."
+
+            return f"Your {key} is {value}."
+
+        elif action == "delete":
+
+            key = task.parameters.get("key")
+
+            if key in self.memory:
+
+                del self.memory[key]
+
+                self.save_memory()
+
+                return f"I forgot your {key}."
+
+            return f"I don't know your {key}."
+
+        return "Unknown memory action."
 
 
 memory_tool = MemoryTool()

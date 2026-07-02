@@ -1,17 +1,18 @@
 """
-Task model for Jarvis AI.
+Task model for Jarvis.
+
+Represents a parsed user request.
 """
 
-from dataclasses import dataclass
-from typing import Dict, Any
+from dataclasses import dataclass, field
+from typing import Any, Dict
 
 
 @dataclass
 class Task:
-    """
-    Represents a task selected by the router.
-    """
 
     tool: str
+
     action: str
-    parameters: Dict[str, Any]
+
+    parameters: Dict[str, Any] = field(default_factory=dict)
